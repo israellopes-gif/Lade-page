@@ -5,25 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
     <link rel="stylesheet" href="style.css">
-<script type="module" src="https://d1w6liik5y6dkm.cloudfront.net/client-side/2/670fad37-efb3-4d6e-a72e-d61ae7ece306.js"></script>
+    
+    <script>
+        // Função simples para definir um cookie
+        function setTestCookie(name, value, days, category) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            console.log(`Cookie de teste criado [${category}]: ${name}`);
+        }
+
+        // 1. Cookies de Marketing (Ex: Facebook Pixel, Google Ads)
+        setTestCookie("_fbp", "fb.1.1699999999", 90, "Marketing");
+        setTestCookie("_gcl_au", "1.1.1699999999", 90, "Marketing");
+        setTestCookie("ads_user_id", "123456789", 30, "Marketing");
+
+        // 2. Cookies Estatísticos/Analíticos (Ex: Google Analytics)
+        setTestCookie("_ga", "GA1.2.1699999999", 730, "Estatística");
+        setTestCookie("_gid", "GA1.2.1699999999", 1, "Estatística");
+        setTestCookie("_hjSessionUser", "hotjar_test_id", 365, "Estatística");
+
+        // 3. Cookies Funcionais (Ex: Preferências do site)
+        setTestCookie("site_language", "pt-BR", 365, "Funcional");
+        setTestCookie("theme_preference", "light", 365, "Funcional");
+        
+        // 4. Cookie Necessário (Simulação)
+        setTestCookie("session_id", "xyz-token-seguranca", 0, "Necessário");
+    </script>
+
+
+    
+    <script type="module" src="https://d1w6liik5y6dkm.cloudfront.net/client-side/2/670fad37-efb3-4d6e-a72e-d61ae7ece306.js"></script>
+    
     <title>Ecola DNC</title>
     
 </head>
 <body>
-    <!--MENU SUPERIOR-->
     <div id="menu-superior">
         <a href="https://www.escoladnc.com.br/"><img src="imagens/logo.svg" id="logo" alt="ERROR"></a>
         <h1 id="titulo-MenuSuperior">Dê os primeiros passos da <br>
         sua carreira em Tecnologia
         </h1>
         <p id="texto-menusuperior">Inscreva-se no curso gratuito de Introdução à<br>
-         Tecnologia da DNC School e aprenda os principais<br>
-         fundamentos para construir experiências efetivas. 
+          Tecnologia da DNC School e aprenda os principais<br>
+          fundamentos para construir experiências efetivas. 
         </p>
     </div>
     
     
-    <!--MENU INFORMARCIONAL-->
     <div id="menu-informacional" >
     <p class="texto-informativo"> <img src="icones/registro.svg" alt="" class="icone" id="registro">Certificado de conclusão</p>
     <p class="texto-informativo">  <img src="icones/relogio.svg" alt="" class="icone" id="relogio">4 horas de conteúdo</p>
@@ -31,7 +64,6 @@
     </div>
 
 
-    <!--SEÇÃO VIDEO-->
     <div id="seçãovideo">
         <iframe id="video" width="502" height="283" src="https://www.youtube.com/embed/ITxGkd9h4n4" title="DNC - A escola inovadora que forma profissionais de alta perfomance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -42,16 +74,14 @@
         os principais métodos e ferramentas da área para resolver <br>
          problemas complexos. <br><br>
 
-       Conquiste seu certificado e desenvolva um projeto prático para <br>
+        Conquiste seu certificado e desenvolva um projeto prático para <br>
         aplicar seus conhecimentos.</p>
     </div>
 </div> 
 
-<!--CARROSSEL-->
 <div id="carrossel">
   <h1 id="titulocarrossel">Mais de 500 alunos já iniciaram seus estudos</h1>
- <!--DIVISÃO DE CARDS-->
-  <div id="divcards">
+ <div id="divcards">
 
     <img id="setaesquerda" class="seta" onclick="RolarParaEsquerda()" src="icones/setaesquerda.svg" alt="">
     <img id="leonardo" class="cards" src="cards/leonardo.svg" alt=""> 
@@ -63,8 +93,7 @@
 </div>
  
 
-<!--Formulario-->
- <div id="formulario">
+<div id="formulario">
     <h1 id="tituloformulario">Comece agora mesmo e dê o próximo passo da sua carreira</h1>
     <form action="https://api.sheetmonkey.io/form/r2GooGfx5u6HKPkxYxdwqh" method="post">
         <input type="text" placeholder="Nome" name="Name" required> <br>
