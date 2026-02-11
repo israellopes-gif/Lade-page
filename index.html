@@ -6,6 +6,740 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
     <link rel="stylesheet" href="style.css">
 <script type="module" src="https://d1w6liik5y6dkm.cloudfront.net/base/version-2026-02-11T16:54:08.317Z-codeBaseCmpBE.js"></script>
+        <script type="module">
+
+        // Inicializar com config do usuário
+        CookieConsent.run({
+            cookie: {
+                expiresAfterDays: 60,
+            },
+            guiOptions: {
+                consentModal: {
+                    layout: "box wide",
+                    position: "bottom left",
+                    flipButtons: false,
+                },
+                preferencesModal: {
+                    layout: "box",
+                    position: "center",
+                    flipButtons: false,
+                },
+            },
+            categories: {
+                necessary: { enabled: true, readOnly: true },
+                analytics: { enabled: false, readOnly: false },
+                advertisement: { enabled: false, readOnly: false },
+                functionality: { enabled: false, readOnly: false },
+                performance: { enabled: false, readOnly: false },
+            },
+            language: {
+                default: "en",
+                autoDetect: "document",
+                translations: {
+                    pt: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Controle sua privacidade",
+                                description: "Nosso site usa cookies para melhorar a navegação.",
+                                acceptAllBtn: "Aceitar",
+                                acceptNecessaryBtn: "Rejeitar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `<a href="" target="_blank">Termos de Uso</a><a href="" target="_blank">Política de Privacidade</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Quem pode usar seus cookies?",
+                                acceptAllBtn: "Aceitar todos",
+                                acceptNecessaryBtn: "Rejeitar todos",
+                                savePreferencesBtn: "Salvar preferências",
+                                closeIconLabel: "Fechar",
+                                serviceCounterLabel: "serviços",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies para garantir as funcionalidades básicas do site e melhorar sua experiência online. Você pode optar por aceitar ou rejeitar cookies em cada categoria a qualquer momento." },
+                                    { title: "Necessários", description: "Os cookies necessários são essenciais para o funcionamento do site, sem eles o site não funcionaria corretamente.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Os cookies de desempenho permitem que o site se comporte de acordo com o visitante, ajustando-se à sua localização, idioma preferido, etc.", linkedCategory: "performance" },
+                                    { title: "Funcional", description: "Os cookies funcionais permitem que o site memorize as escolhas que você faz e forneça recursos aprimorados e mais pessoais.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Os cookies de marketing ou publicidade rastreiam a navegação dos visitantes e coletam dados para fornecer anúncios mais relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estatísticas", description: "Os cookies de estatísticas traduzem as interações dos visitantes em relatórios detalhados de comportamento, de maneira anônima.", linkedCategory: "analytics" },
+                                    { title: "Mais informações", description: "Para quaisquer dúvidas sobre a nossa política de cookies e suas escolhas, por favor entre em contato conosco." }
+                                    , {//dar espaço entre elas usando metodo html
+                                        description: `<a href="" target="_blank">Termos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidade</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>`
+                                    }]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Controle sua privacidade",
+                                description: "Nosso site usa cookies para melhorar a navegação conforme o GDPR.",
+                                acceptAllBtn: "Aceitar",
+                                acceptNecessaryBtn: "Rejeitar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href="" target="_blank" >Termos de Uso</a><a href="" target="_blank">   Política de Privacidade</a><a href="" target="_blank">    Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Quem pode usar seus cookies?",
+                                acceptAllBtn: "Aceitar todos",
+                                acceptNecessaryBtn: "Rejeitar todos",
+                                savePreferencesBtn: "Salvar preferências",
+                                closeIconLabel: "Fechar",
+                                serviceCounterLabel: "serviços",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme o GDPR para garantir as funcionalidades básicas do site e melhorar sua experiência online." },
+                                    { title: "Necessários", description: "Os cookies necessários são essenciais para o funcionamento do site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Os cookies de desempenho permitem que o site se comporte de acordo com o visitante.", linkedCategory: "performance" },
+                                    { title: "Funcional", description: "Os cookies funcionais permitem que o site memorize as escolhas que você faz.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Os cookies de marketing rastreiam a navegação dos visitantes para fornecer anúncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estatísticas", description: "Os cookies de estatísticas traduzem as interações em relatórios de comportamento anônimos.", linkedCategory: "analytics" },
+                                    { title: "Mais informações", description: "Para dúvidas sobre nossa política de cookies, entre em contato conosco." },
+                                    { description: `<a href="" target="_blank">Termos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidade</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Controle sua privacidade",
+                                description: "Nosso site usa cookies conforme a CCPA.",
+                                acceptAllBtn: "Aceitar",
+                                acceptNecessaryBtn: "Rejeitar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href = "" target = "_blank" > Termos de Uso</a ><a href="" target="_blank">Política de Privacidade</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Quem pode usar seus cookies?",
+                                acceptAllBtn: "Aceitar todos",
+                                acceptNecessaryBtn: "Rejeitar todos",
+                                savePreferencesBtn: "Salvar preferências",
+                                closeIconLabel: "Fechar",
+                                serviceCounterLabel: "serviços",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme a CCPA para garantir as funcionalidades básicas do site." },
+                                    { title: "Necessários", description: "Os cookies necessários são essenciais para o funcionamento do site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Os cookies de desempenho ajustam o site à sua localização e idioma.", linkedCategory: "performance" },
+                                    { title: "Funcional", description: "Os cookies funcionais memorizam suas escolhas e preferências.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Os cookies de marketing rastreiam navegação para anúncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estatísticas", description: "Os cookies de estatísticas geram relatórios de comportamento anônimos.", linkedCategory: "analytics" },
+                                    { title: "Mais informações", description: "Para dúvidas sobre cookies, entre em contato conosco." }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Controle sua privacidade",
+                                description: "Nosso site usa cookies conforme o UK-GDPR.",
+                                acceptAllBtn: "Aceitar",
+                                acceptNecessaryBtn: "Rejeitar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href = "" target = "_blank" > Termos de Uso</a ><a href="" target="_blank">Política de Privacidade</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Quem pode usar seus cookies?",
+                                acceptAllBtn: "Aceitar todos",
+                                acceptNecessaryBtn: "Rejeitar todos",
+                                savePreferencesBtn: "Salvar preferências",
+                                closeIconLabel: "Fechar",
+                                serviceCounterLabel: "serviços",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme o UK-GDPR para funcionalidades básicas do site." },
+                                    { title: "Necessários", description: "Cookies essenciais para o funcionamento do site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Cookies de desempenho ajustam o site ao visitante.", linkedCategory: "performance" },
+                                    { title: "Funcional", description: "Cookies funcionais memorizam suas escolhas.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies de marketing para anúncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estatísticas", description: "Cookies de estatísticas para relatórios anônimos.", linkedCategory: "analytics" },
+                                    { title: "Mais informações", description: "Para dúvidas, entre em contato conosco." },
+                                    { description: `<a href="" target="_blank">Termos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidade</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        }
+                    },
+                    en: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Control your privacy",
+                                description: "Our website uses cookies to improve navigation.",
+                                acceptAllBtn: "Accept",
+                                acceptNecessaryBtn: "Reject",
+                                showPreferencesBtn: "Customize",
+                                footer: `<a href="" target="_blank">Terms of Use</a><a href="" target="_blank">Privacy Policy</a><a href="" target="_blank">Cookie Policy</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Who can use your cookies?",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject all",
+                                savePreferencesBtn: "Save preferences",
+                                closeIconLabel: "Close",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Cookie usage", description: "We use cookies to ensure the basic functionalities of the website and to enhance your online experience." },
+                                    { title: "Required", description: "Necessary cookies are essential for the website to function properly.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Performance cookies allow the website to behave according to the visitor.", linkedCategory: "performance" },
+                                    { title: "Functional", description: "Functional cookies adjust the website to third-party services.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing cookies track browsing to provide relevant advertisements.", linkedCategory: "advertisement" },
+                                    { title: "Statistics", description: "Statistics cookies translate visitor interactions into anonymized behavior reports.", linkedCategory: "analytics" },
+                                    { title: "More information", description: "For any queries about our cookie policy, please contact us." },
+                                    { description: `<a href="" target="_blank">Terms of Use</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie Policy</a>` }
+                                ]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Control your privacy",
+                                description: "Our website uses cookies in compliance with GDPR.",
+                                acceptAllBtn: "Accept",
+                                acceptNecessaryBtn: "Reject",
+                                showPreferencesBtn: "Customize",
+                                footer: `< a href = "" target = "_blank" > Terms of Use</a ><a href="" target="_blank">Privacy Policy</a><a href="" target="_blank">Cookie Policy</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Who can use your cookies?",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject all",
+                                savePreferencesBtn: "Save preferences",
+                                closeIconLabel: "Close",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Cookie usage", description: "We use cookies in compliance with GDPR to ensure basic functionalities and enhance your experience." },
+                                    { title: "Required", description: "Necessary cookies are essential for website functionality.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Performance cookies adjust the website to your preferences.", linkedCategory: "performance" },
+                                    { title: "Functional", description: "Functional cookies enable third-party service integration.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing cookies track browsing for relevant ads.", linkedCategory: "advertisement" },
+                                    { title: "Statistics", description: "Statistics cookies generate anonymized behavior reports.", linkedCategory: "analytics" },
+                                    { title: "More information", description: "For cookie policy queries, contact us." },
+                                    { description: `<a href="" target="_blank">Terms of Use</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie Policy</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Control your privacy",
+                                description: "Our website uses cookies in compliance with CCPA.",
+                                acceptAllBtn: "Accept",
+                                acceptNecessaryBtn: "Reject",
+                                showPreferencesBtn: "Customize",
+                                footer: `< a href = "" target = "_blank" > Terms of Use</a ><a href="" target="_blank">Privacy Policy</a><a href="" target="_blank">Cookie Policy</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Who can use your cookies?",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject all",
+                                savePreferencesBtn: "Save preferences",
+                                closeIconLabel: "Close",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Cookie usage", description: "We use cookies in compliance with CCPA to ensure basic functionalities." },
+                                    { title: "Required", description: "Necessary cookies are essential for the website.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Performance cookies adjust to your location and language.", linkedCategory: "performance" },
+                                    { title: "Functional", description: "Functional cookies remember your choices.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing cookies track browsing for relevant ads.", linkedCategory: "advertisement" },
+                                    { title: "Statistics", description: "Statistics cookies generate anonymized reports.", linkedCategory: "analytics" },
+                                    { title: "More information", description: "For queries, contact us." },
+                                    { description: `<a href="" target="_blank">Terms of Use</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie Policy</a>` }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Control your privacy",
+                                description: "Our website uses cookies in compliance with UK-GDPR.",
+                                acceptAllBtn: "Accept",
+                                acceptNecessaryBtn: "Reject",
+                                showPreferencesBtn: "Customize",
+                                footer: `< a href = "" target = "_blank" > Terms of Use</a ><a href="" target="_blank">Privacy Policy</a><a href="" target="_blank">Cookie Policy</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Who can use your cookies?",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject all",
+                                savePreferencesBtn: "Save preferences",
+                                closeIconLabel: "Close",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Cookie usage", description: "We use cookies in compliance with UK-GDPR for basic functionalities." },
+                                    { title: "Required", description: "Essential cookies for website functionality.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Performance cookies adjust to visitor preferences.", linkedCategory: "performance" },
+                                    { title: "Functional", description: "Functional cookies remember your choices.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing cookies for relevant advertisements.", linkedCategory: "advertisement" },
+                                    { title: "Statistics", description: "Statistics cookies for anonymized reports.", linkedCategory: "analytics" },
+                                    { title: "More information", description: "Contact us for queries." },
+                                    { description: `<a href="" target="_blank">Terms of Use</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie Policy</a>` }
+                                ]
+                            }
+                        }
+                    },
+                    es: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Controla tu privacidad",
+                                description: "Nuestro sitio web utiliza cookies para mejorar la navegación.",
+                                acceptAllBtn: "Aceptar",
+                                acceptNecessaryBtn: "Rechazar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `<a href="" target="_blank">Términos de Uso</a><a href="" target="_blank">Política de Privacidad</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "¿Quién puede usar tus cookies?",
+                                acceptAllBtn: "Aceptar todas",
+                                acceptNecessaryBtn: "Rechazar todas",
+                                savePreferencesBtn: "Guardar preferencias",
+                                closeIconLabel: "Cerrar",
+                                serviceCounterLabel: "servicios",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies para garantizar las funcionalidades básicas del sitio y mejorar tu experiencia en línea." },
+                                    { title: "Necesarias", description: "Las cookies necesarias son esenciales para el funcionamiento del sitio.", linkedCategory: "necessary" },
+                                    { title: "Rendimiento", description: "Las cookies de rendimiento permiten que el sitio se adapte al visitante.", linkedCategory: "performance" },
+                                    { title: "Funcionales", description: "Las cookies funcionales permiten recordar tus elecciones.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Las cookies de marketing rastrean la navegación para ofrecer anuncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estadísticas", description: "Las cookies de estadísticas generan informes de comportamiento anónimos.", linkedCategory: "analytics" },
+                                    { title: "Más información", description: "Para cualquier consulta sobre nuestra política de cookies, contáctenos." },
+                                    { description: `<a href="" target="_blank">Términos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidad</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Controla tu privacidad",
+                                description: "Nuestro sitio web utiliza cookies conforme al GDPR.",
+                                acceptAllBtn: "Aceptar",
+                                acceptNecessaryBtn: "Rechazar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href = "" target = "_blank" > Términos de Uso</a ><a href="" target="_blank">Política de Privacidad</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "¿Quién puede usar tus cookies?",
+                                acceptAllBtn: "Aceptar todas",
+                                acceptNecessaryBtn: "Rechazar todas",
+                                savePreferencesBtn: "Guardar preferencias",
+                                closeIconLabel: "Cerrar",
+                                serviceCounterLabel: "servicios",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme al GDPR para funcionalidades básicas del sitio." },
+                                    { title: "Necesarias", description: "Cookies esenciales para el funcionamiento del sitio.", linkedCategory: "necessary" },
+                                    { title: "Rendimiento", description: "Cookies de rendimiento que adaptan el sitio al visitante.", linkedCategory: "performance" },
+                                    { title: "Funcionales", description: "Cookies funcionales que recuerdan tus elecciones.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies de marketing para anuncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estadísticas", description: "Cookies de estadísticas para informes anónimos.", linkedCategory: "analytics" },
+                                    { title: "Más información", description: "Para consultas, contáctenos." },
+                                    { description: `<a href="" target="_blank">Términos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidad</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Controla tu privacidad",
+                                description: "Nuestro sitio web utiliza cookies conforme a la CCPA.",
+                                acceptAllBtn: "Aceptar",
+                                acceptNecessaryBtn: "Rechazar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href = "" target = "_blank" > Términos de Uso</a ><a href="" target="_blank">Política de Privacidad</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "¿Quién puede usar tus cookies?",
+                                acceptAllBtn: "Aceptar todas",
+                                acceptNecessaryBtn: "Rechazar todas",
+                                savePreferencesBtn: "Guardar preferencias",
+                                closeIconLabel: "Cerrar",
+                                serviceCounterLabel: "servicios",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme a la CCPA para funcionalidades básicas." },
+                                    { title: "Necesarias", description: "Cookies esenciales para el sitio.", linkedCategory: "necessary" },
+                                    { title: "Rendimiento", description: "Cookies que adaptan el sitio a tu ubicación e idioma.", linkedCategory: "performance" },
+                                    { title: "Funcionales", description: "Cookies que recuerdan tus preferencias.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies para anuncios relevantes.", linkedCategory: "advertisement" },
+                                    { title: "Estadísticas", description: "Cookies para informes anónimos.", linkedCategory: "analytics" },
+                                    { title: "Más información", description: "Para consultas, contáctenos." },
+                                    { description: `<a href="" target="_blank">Términos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidad</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Controla tu privacidad",
+                                description: "Nuestro sitio web utiliza cookies conforme al UK-GDPR.",
+                                acceptAllBtn: "Aceptar",
+                                acceptNecessaryBtn: "Rechazar",
+                                showPreferencesBtn: "Personalizar",
+                                footer: `< a href = "" target = "_blank" > Términos de Uso</a ><a href="" target="_blank">Política de Privacidad</a><a href="" target="_blank">Política de Cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "¿Quién puede usar tus cookies?",
+                                acceptAllBtn: "Aceptar todas",
+                                acceptNecessaryBtn: "Rechazar todas",
+                                savePreferencesBtn: "Guardar preferencias",
+                                closeIconLabel: "Cerrar",
+                                serviceCounterLabel: "servicios",
+                                sections: [
+                                    { title: "Uso de cookies", description: "Usamos cookies conforme al UK-GDPR." },
+                                    { title: "Necesarias", description: "Cookies esenciales para el sitio.", linkedCategory: "necessary" },
+                                    { title: "Rendimiento", description: "Cookies de adaptación al visitante.", linkedCategory: "performance" },
+                                    { title: "Funcionales", description: "Cookies que recuerdan elecciones.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies para anuncios.", linkedCategory: "advertisement" },
+                                    { title: "Estadísticas", description: "Cookies para informes.", linkedCategory: "analytics" },
+                                    { title: "Más información", description: "Contáctenos para consultas." },
+                                    { description: `<a href="" target="_blank">Términos de Uso</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Privacidad</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Política de Cookies</a>` }
+                                ]
+                            }
+                        }
+                    },
+                    fr: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Contrôlez votre confidentialité",
+                                description: "Notre site utilise des cookies pour améliorer la navigation.",
+                                acceptAllBtn: "Accepter",
+                                acceptNecessaryBtn: "Refuser",
+                                showPreferencesBtn: "Personnaliser",
+                                footer: `<a href="" target="_blank">Conditions d'utilisation</a><a href="" target="_blank">Politique de confidentialité</a><a href="" target="_blank">Politique de cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Qui peut utiliser vos cookies?",
+                                acceptAllBtn: "Tout accepter",
+                                acceptNecessaryBtn: "Tout refuser",
+                                savePreferencesBtn: "Enregistrer les préférences",
+                                closeIconLabel: "Fermer",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Utilisation des cookies", description: "Nous utilisons des cookies pour garantir les fonctionnalités de base du site et améliorer votre expérience en ligne." },
+                                    { title: "Nécessaires", description: "Les cookies nécessaires sont essentiels au fonctionnement du site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Les cookies de performance permettent au site de s'adapter au visiteur.", linkedCategory: "performance" },
+                                    { title: "Fonctionnels", description: "Les cookies fonctionnels permettent de mémoriser vos choix.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Les cookies marketing suivent la navigation pour des publicités pertinentes.", linkedCategory: "advertisement" },
+                                    { title: "Statistiques", description: "Les cookies statistiques génèrent des rapports de comportement anonymes.", linkedCategory: "analytics" },
+                                    { title: "Plus d'informations", description: "Pour toute question sur notre politique de cookies, contactez-nous." },
+                                    { description: `<a href="" target="_blank">Conditions d'utilisation</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Confidentialité</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Contrôlez votre confidentialité",
+                                description: "Notre site utilise des cookies conformément au RGPD.",
+                                acceptAllBtn: "Accepter",
+                                acceptNecessaryBtn: "Refuser",
+                                showPreferencesBtn: "Personnaliser",
+                                footer: `<a href="" target="_blank">Conditions d'utilisation</a><a href="" target="_blank">Politique de confidentialité</a><a href="" target="_blank">Politique de cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Qui peut utiliser vos cookies?",
+                                acceptAllBtn: "Tout accepter",
+                                acceptNecessaryBtn: "Tout refuser",
+                                savePreferencesBtn: "Enregistrer les préférences",
+                                closeIconLabel: "Fermer",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Utilisation des cookies", description: "Nous utilisons des cookies conformément au RGPD." },
+                                    { title: "Nécessaires", description: "Cookies essentiels au fonctionnement du site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Cookies de performance pour adapter le site.", linkedCategory: "performance" },
+                                    { title: "Fonctionnels", description: "Cookies fonctionnels pour mémoriser vos choix.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies marketing pour des publicités pertinentes.", linkedCategory: "advertisement" },
+                                    { title: "Statistiques", description: "Cookies statistiques pour des rapports anonymes.", linkedCategory: "analytics" },
+                                    { title: "Plus d'informations", description: "Contactez-nous pour toute question." },
+                                    { description: `<a href="" target="_blank">Conditions d'utilisation</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Confidentialité</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Contrôlez votre confidentialité",
+                                description: "Notre site utilise des cookies conformément à la CCPA.",
+                                acceptAllBtn: "Accepter",
+                                acceptNecessaryBtn: "Refuser",
+                                showPreferencesBtn: "Personnaliser",
+                                footer: `<a href="" target="_blank">Conditions d'utilisation</a><a href="" target="_blank">Politique de confidentialité</a><a href="" target="_blank">Politique de cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Qui peut utiliser vos cookies?",
+                                acceptAllBtn: "Tout accepter",
+                                acceptNecessaryBtn: "Tout refuser",
+                                savePreferencesBtn: "Enregistrer les préférences",
+                                closeIconLabel: "Fermer",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Utilisation des cookies", description: "Nous utilisons des cookies conformément à la CCPA." },
+                                    { title: "Nécessaires", description: "Cookies essentiels au site.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Cookies de performance.", linkedCategory: "performance" },
+                                    { title: "Fonctionnels", description: "Cookies fonctionnels.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies pour publicités.", linkedCategory: "advertisement" },
+                                    { title: "Statistiques", description: "Cookies pour rapports.", linkedCategory: "analytics" },
+                                    { title: "Plus d'informations", description: "Contactez-nous." },
+                                    { description: `<a href="" target="_blank">Conditions d'utilisation</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Confidentialité</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Cookies</a>` }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Contrôlez votre confidentialité",
+                                description: "Notre site utilise des cookies conformément au UK-GDPR.",
+                                acceptAllBtn: "Accepter",
+                                acceptNecessaryBtn: "Refuser",
+                                showPreferencesBtn: "Personnaliser",
+                                footer: `<a href="" target="_blank">Conditions d'utilisation</a><a href="" target="_blank">Politique de confidentialité</a><a href="" target="_blank">Politique de cookies</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Qui peut utiliser vos cookies?",
+                                acceptAllBtn: "Tout accepter",
+                                acceptNecessaryBtn: "Tout refuser",
+                                savePreferencesBtn: "Enregistrer les préférences",
+                                closeIconLabel: "Fermer",
+                                serviceCounterLabel: "services",
+                                sections: [
+                                    { title: "Utilisation des cookies", description: "Cookies conformes au UK-GDPR." },
+                                    { title: "Nécessaires", description: "Cookies essentiels.", linkedCategory: "necessary" },
+                                    { title: "Performance", description: "Cookies de performance.", linkedCategory: "performance" },
+                                    { title: "Fonctionnels", description: "Cookies fonctionnels.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookies marketing.", linkedCategory: "advertisement" },
+                                    { title: "Statistiques", description: "Cookies statistiques.", linkedCategory: "analytics" },
+                                    { title: "Plus d'informations", description: "Contactez-nous." },
+                                    { description: `<a href="" target="_blank">Conditions d'utilisation</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Confidentialité</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politique de Cookies</a>` }
+                                ]
+                            }
+                        }
+                    },
+                    de: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Kontrollieren Sie Ihre Privatsphäre",
+                                description: "Unsere Website verwendet Cookies, um die Navigation zu verbessern.",
+                                acceptAllBtn: "Akzeptieren",
+                                acceptNecessaryBtn: "Ablehnen",
+                                showPreferencesBtn: "Anpassen",
+                                footer: `<a href="" target="_blank">Nutzungsbedingungen</a><a href="" target="_blank">Datenschutzrichtlinie</a><a href="" target="_blank">Cookie-Richtlinie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Wer kann Ihre Cookies verwenden?",
+                                acceptAllBtn: "Alle akzeptieren",
+                                acceptNecessaryBtn: "Alle ablehnen",
+                                savePreferencesBtn: "Einstellungen speichern",
+                                closeIconLabel: "Schließen",
+                                serviceCounterLabel: "Dienste",
+                                sections: [
+                                    { title: "Cookie-Nutzung", description: "Wir verwenden Cookies, um die grundlegenden Funktionen der Website zu gewährleisten und Ihr Online-Erlebnis zu verbessern." },
+                                    { title: "Erforderlich", description: "Notwendige Cookies sind für die Funktion der Website unerlässlich.", linkedCategory: "necessary" },
+                                    { title: "Leistung", description: "Leistungscookies ermöglichen es der Website, sich an den Besucher anzupassen.", linkedCategory: "performance" },
+                                    { title: "Funktional", description: "Funktionale Cookies merken sich Ihre Auswahl.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing-Cookies verfolgen das Surfverhalten für relevante Werbung.", linkedCategory: "advertisement" },
+                                    { title: "Statistiken", description: "Statistik-Cookies erstellen anonyme Verhaltensberichte.", linkedCategory: "analytics" },
+                                    { title: "Weitere Informationen", description: "Bei Fragen zu unserer Cookie-Richtlinie kontaktieren Sie uns." },
+                                    { description: `<a href="" target="_blank">Nutzungsbedingungen</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Datenschutzrichtlinie</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie-Richtlinie</a>` }
+                                ]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Kontrollieren Sie Ihre Privatsphäre",
+                                description: "Unsere Website verwendet Cookies gemäß der DSGVO.",
+                                acceptAllBtn: "Akzeptieren",
+                                acceptNecessaryBtn: "Ablehnen",
+                                showPreferencesBtn: "Anpassen",
+                                footer: `<a href="" target="_blank">Nutzungsbedingungen</a><a href="" target="_blank">Datenschutzrichtlinie</a><a href="" target="_blank">Cookie-Richtlinie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Wer kann Ihre Cookies verwenden?",
+                                acceptAllBtn: "Alle akzeptieren",
+                                acceptNecessaryBtn: "Alle ablehnen",
+                                savePreferencesBtn: "Einstellungen speichern",
+                                closeIconLabel: "Schließen",
+                                serviceCounterLabel: "Dienste",
+                                sections: [
+                                    { title: "Cookie-Nutzung", description: "Wir verwenden Cookies gemäß der DSGVO." },
+                                    { title: "Erforderlich", description: "Notwendige Cookies für die Website.", linkedCategory: "necessary" },
+                                    { title: "Leistung", description: "Leistungscookies passen die Website an.", linkedCategory: "performance" },
+                                    { title: "Funktional", description: "Funktionale Cookies merken Auswahl.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing-Cookies für Werbung.", linkedCategory: "advertisement" },
+                                    { title: "Statistiken", description: "Statistik-Cookies für Berichte.", linkedCategory: "analytics" },
+                                    { title: "Weitere Informationen", description: "Kontaktieren Sie uns bei Fragen." },
+                                    { description: `<a href="" target="_blank">Nutzungsbedingungen</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Datenschutzrichtlinie</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie-Richtlinie</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Kontrollieren Sie Ihre Privatsphäre",
+                                description: "Unsere Website verwendet Cookies gemäß CCPA.",
+                                acceptAllBtn: "Akzeptieren",
+                                acceptNecessaryBtn: "Ablehnen",
+                                showPreferencesBtn: "Anpassen",
+                                footer: `<a href="" target="_blank">Nutzungsbedingungen</a><a href="" target="_blank">Datenschutzrichtlinie</a><a href="" target="_blank">Cookie-Richtlinie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Wer kann Ihre Cookies verwenden?",
+                                acceptAllBtn: "Alle akzeptieren",
+                                acceptNecessaryBtn: "Alle ablehnen",
+                                savePreferencesBtn: "Einstellungen speichern",
+                                closeIconLabel: "Schließen",
+                                serviceCounterLabel: "Dienste",
+                                sections: [
+                                    { title: "Cookie-Nutzung", description: "Cookies gemäß CCPA." },
+                                    { title: "Erforderlich", description: "Notwendige Cookies.", linkedCategory: "necessary" },
+                                    { title: "Leistung", description: "Leistungscookies.", linkedCategory: "performance" },
+                                    { title: "Funktional", description: "Funktionale Cookies.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing-Cookies.", linkedCategory: "advertisement" },
+                                    { title: "Statistiken", description: "Statistik-Cookies.", linkedCategory: "analytics" },
+                                    { title: "Weitere Informationen", description: "Kontaktieren Sie uns." },
+                                    { description: `<a href="" target="_blank">Nutzungsbedingungen</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Datenschutzrichtlinie</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie-Richtlinie</a>` }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Kontrollieren Sie Ihre Privatsphäre",
+                                description: "Unsere Website verwendet Cookies gemäß UK-GDPR.",
+                                acceptAllBtn: "Akzeptieren",
+                                acceptNecessaryBtn: "Ablehnen",
+                                showPreferencesBtn: "Anpassen",
+                                footer: `<a href="" target="_blank">Nutzungsbedingungen</a><a href="" target="_blank">Datenschutzrichtlinie</a><a href="" target="_blank">Cookie-Richtlinie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Wer kann Ihre Cookies verwenden?",
+                                acceptAllBtn: "Alle akzeptieren",
+                                acceptNecessaryBtn: "Alle ablehnen",
+                                savePreferencesBtn: "Einstellungen speichern",
+                                closeIconLabel: "Schließen",
+                                serviceCounterLabel: "Dienste",
+                                sections: [
+                                    { title: "Cookie-Nutzung", description: "Cookies gemäß UK-GDPR." },
+                                    { title: "Erforderlich", description: "Notwendige Cookies.", linkedCategory: "necessary" },
+                                    { title: "Leistung", description: "Leistungscookies.", linkedCategory: "performance" },
+                                    { title: "Funktional", description: "Funktionale Cookies.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Marketing-Cookies.", linkedCategory: "advertisement" },
+                                    { title: "Statistiken", description: "Statistik-Cookies.", linkedCategory: "analytics" },
+                                    { title: "Weitere Informationen", description: "Kontaktieren Sie uns." },
+                                    { description: `<a href="" target="_blank">Nutzungsbedingungen</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Datenschutzrichtlinie</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Cookie-Richtlinie</a>` }
+                                ]
+                            }
+                        }
+                    },
+                    it: {
+                        lgpd: {
+                            consentModal: {
+                                title: "Controlla la tua privacy",
+                                description: "Il nostro sito utilizza i cookie per migliorare la navigazione.",
+                                acceptAllBtn: "Accetta",
+                                acceptNecessaryBtn: "Rifiuta",
+                                showPreferencesBtn: "Personalizza",
+                                footer: `<a href="" target="_blank">Termini di utilizzo</a><a href="" target="_blank">Informativa sulla privacy</a><a href="" target="_blank">Politica sui cookie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Chi può utilizzare i tuoi cookie?",
+                                acceptAllBtn: "Accetta tutti",
+                                acceptNecessaryBtn: "Rifiuta tutti",
+                                savePreferencesBtn: "Salva preferenze",
+                                closeIconLabel: "Chiudi",
+                                serviceCounterLabel: "servizi",
+                                sections: [
+                                    { title: "Uso dei cookie", description: "Utilizziamo i cookie per garantire le funzionalità di base del sito e migliorare la tua esperienza online." },
+                                    { title: "Necessari", description: "I cookie necessari sono essenziali per il funzionamento del sito.", linkedCategory: "necessary" },
+                                    { title: "Prestazioni", description: "I cookie di prestazione permettono al sito di adattarsi al visitatore.", linkedCategory: "performance" },
+                                    { title: "Funzionali", description: "I cookie funzionali memorizzano le tue scelte.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "I cookie di marketing tracciano la navigazione per pubblicità pertinenti.", linkedCategory: "advertisement" },
+                                    { title: "Statistiche", description: "I cookie statistici generano report di comportamento anonimi.", linkedCategory: "analytics" },
+                                    { title: "Maggiori informazioni", description: "Per qualsiasi domanda sulla nostra politica sui cookie, contattaci." },
+                                    { description: `<a href="" target="_blank">Termini di utilizzo</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Informativa sulla privacy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politica sui cookie</a>` }
+                                ]
+                            }
+                        },
+                        gdpr: {
+                            consentModal: {
+                                title: "Controlla la tua privacy",
+                                description: "Il nostro sito utilizza i cookie in conformità al GDPR.",
+                                acceptAllBtn: "Accetta",
+                                acceptNecessaryBtn: "Rifiuta",
+                                showPreferencesBtn: "Personalizza",
+                                footer: `<a href="" target="_blank">Termini di utilizzo</a><a href="" target="_blank">Informativa sulla privacy</a><a href="" target="_blank">Politica sui cookie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Chi può utilizzare i tuoi cookie?",
+                                acceptAllBtn: "Accetta tutti",
+                                acceptNecessaryBtn: "Rifiuta tutti",
+                                savePreferencesBtn: "Salva preferenze",
+                                closeIconLabel: "Chiudi",
+                                serviceCounterLabel: "servizi",
+                                sections: [
+                                    { title: "Uso dei cookie", description: "Cookie in conformità al GDPR." },
+                                    { title: "Necessari", description: "Cookie essenziali per il sito.", linkedCategory: "necessary" },
+                                    { title: "Prestazioni", description: "Cookie di prestazione.", linkedCategory: "performance" },
+                                    { title: "Funzionali", description: "Cookie funzionali.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookie di marketing.", linkedCategory: "advertisement" },
+                                    { title: "Statistiche", description: "Cookie statistici.", linkedCategory: "analytics" },
+                                    { title: "Maggiori informazioni", description: "Contattaci per domande." },
+                                    { description: `<a href="" target="_blank">Termini di utilizzo</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Informativa sulla privacy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politica sui cookie</a>` }
+                                ]
+                            }
+                        },
+                        ccpa: {
+                            consentModal: {
+                                title: "Controlla la tua privacy",
+                                description: "Il nostro sito utilizza i cookie in conformità alla CCPA.",
+                                acceptAllBtn: "Accetta",
+                                acceptNecessaryBtn: "Rifiuta",
+                                showPreferencesBtn: "Personalizza",
+                                footer: `<a href="" target="_blank">Termini di utilizzo</a><a href="" target="_blank">Informativa sulla privacy</a><a href="" target="_blank">Politica sui cookie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Chi può utilizzare i tuoi cookie?",
+                                acceptAllBtn: "Accetta tutti",
+                                acceptNecessaryBtn: "Rifiuta tutti",
+                                savePreferencesBtn: "Salva preferenze",
+                                closeIconLabel: "Chiudi",
+                                serviceCounterLabel: "servizi",
+                                sections: [
+                                    { title: "Uso dei cookie", description: "Cookie conformi alla CCPA." },
+                                    { title: "Necessari", description: "Cookie essenziali.", linkedCategory: "necessary" },
+                                    { title: "Prestazioni", description: "Cookie di prestazione.", linkedCategory: "performance" },
+                                    { title: "Funzionali", description: "Cookie funzionali.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookie di marketing.", linkedCategory: "advertisement" },
+                                    { title: "Statistiche", description: "Cookie statistici.", linkedCategory: "analytics" },
+                                    { title: "Maggiori informazioni", description: "Contattaci." },
+                                    { description: `<a href="" target="_blank">Termini di utilizzo</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Informativa sulla privacy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politica sui cookie</a>` }
+                                ]
+                            }
+                        },
+                        "uk-gdpr": {
+                            consentModal: {
+                                title: "Controlla la tua privacy",
+                                description: "Il nostro sito utilizza i cookie in conformità al UK-GDPR.",
+                                acceptAllBtn: "Accetta",
+                                acceptNecessaryBtn: "Rifiuta",
+                                showPreferencesBtn: "Personalizza",
+                                footer: `<a href="" target="_blank">Termini di utilizzo</a><a href="" target="_blank">Informativa sulla privacy</a><a href="" target="_blank">Politica sui cookie</a>`,
+                            },
+                            preferencesModal: {
+                                title: "Chi può utilizzare i tuoi cookie?",
+                                acceptAllBtn: "Accetta tutti",
+                                acceptNecessaryBtn: "Rifiuta tutti",
+                                savePreferencesBtn: "Salva preferenze",
+                                closeIconLabel: "Chiudi",
+                                serviceCounterLabel: "servizi",
+                                sections: [
+                                    { title: "Uso dei cookie", description: "Cookie UK-GDPR." },
+                                    { title: "Necessari", description: "Cookie essenziali.", linkedCategory: "necessary" },
+                                    { title: "Prestazioni", description: "Cookie prestazioni.", linkedCategory: "performance" },
+                                    { title: "Funzionali", description: "Cookie funzionali.", linkedCategory: "functionality" },
+                                    { title: "Marketing", description: "Cookie marketing.", linkedCategory: "advertisement" },
+                                    { title: "Statistiche", description: "Cookie statistici.", linkedCategory: "analytics" },
+                                    { title: "Maggiori informazioni", description: "Contattaci." },
+                                    { description: `<a href="" target="_blank">Termini di utilizzo</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Informativa sulla privacy</a>&nbsp;&nbsp;&nbsp;<a href="" target="_blank">Politica sui cookie</a>` }
+                                ]
+                            }
+                        }
+                    }
+                },
+            },
+            floatingButton: true,
+            TCF: true,
+            googleConsentMode: true,
+            autoShow: true,
+            autoClearCookies: true,
+            theme: {
+                darkMode: "dark"
+            },
+            cssVariables: false,
+            disablePageInteraction: false,
+            mode: "opt-in",
+            hideFromBots: true,
+            recommendedConfiguration: true
+        });
+
+
+
+    </script>
     <script>
         // Função simples para definir um cookie
         function setTestCookie(name, value, days, category) {
