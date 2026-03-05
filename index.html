@@ -5,42 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
     <link rel="stylesheet" href="style.css">
-<script type="module" src="https://cdn-api-cmp.becompliance.com/client-side/2100/ae3e2166-c2c3-4726-848a-1d28fb5ab1a7.js"></script>
-    <script>
-        // Função simples para definir um cookie
-        function setTestCookie(name, value, days, category) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days*24*60*60*1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-            console.log(`Cookie de teste criado [${category}]: ${name}`);
-        }
 
-        // 1. Cookies de Marketing (Ex: Facebook Pixel, Google Ads)
-        setTestCookie("_fbp", "fb.1.1699999999", 90, "Marketing");
-        setTestCookie("_gcl_au", "1.1.1699999999", 90, "Marketing");
-        setTestCookie("ads_user_id", "123456789", 30, "Marketing");
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
 
-        // 2. Cookies Estatísticos/Analíticos (Ex: Google Analytics)
-        setTestCookie("_ga", "GA1.2.1699999999", 730, "Estatística");
-        setTestCookie("_gid", "GA1.2.1699999999", 1, "Estatística");
-        setTestCookie("_hjSessionUser", "hotjar_test_id", 365, "Estatística");
-
-        // 3. Cookies Funcionais (Ex: Preferências do site)
-        setTestCookie("site_language", "pt-BR", 365, "Funcional");
-        setTestCookie("theme_preference", "light", 365, "Funcional");
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
         
-        // 4. Cookie Necessário (Simulação)
-        setTestCookie("session_id", "xyz-token-seguranca", 0, "Necessário");
+        gtag('set', 'ads_data_redaction', true);
     </script>
 
+   <script type="module" src="https://cdn-api-cmp.becompliance.com/client-side/2100/ae3e2166-c2c3-4726-848a-1d28fb5ab1a7.js"></script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10805872214"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10805872214');
+    </script>
     
-    <title>Ecola DNC</title>
-    
+    <title>Escola DNC</title>
 </head>
 <body>
     <div id="menu-superior">
