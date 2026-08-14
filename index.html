@@ -53,11 +53,11 @@
 
 
     <div id="seçãovideo">
-        <!-- data-category: sem ele o YouTube grava cookies assim que a página
-             abre, antes de qualquer escolha do visitante. A CMP move o src para
-             data-src, mostra um aviso no lugar e restaura o player quando a
-             categoria "functionality" é aceita. -->
-        <iframe id="video" data-category="functionality" width="502" height="283" src="https://www.youtube.com/embed/ITxGkd9h4n4" title="DNC - A escola inovadora que forma profissionais de alta perfomance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- Embed entregue já neutralizado (data-src, sem src): o navegador
+             inicia a requisição do iframe no instante do parsing — antes de a
+             CMP alcançá-lo — e uma chamada ao YouTube escapava. Sem src não há
+             corrida; a CMP restaura o player quando "functionality" é aceita. -->
+        <iframe id="video" data-category="functionality" width="502" height="283" data-src="https://www.youtube.com/embed/ITxGkd9h4n4" title="DNC - A escola inovadora que forma profissionais de alta perfomance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <div><h1 id="titulovideo">Aprenda com especialistas e <br>
     comece seu primeiro projeto</h1><br><br>
