@@ -6,13 +6,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
     <link rel="stylesheet" href="style.css">
 
-
+    <!--
+      1) Bootstrap da CMP. Clássico e SEM async/defer de propósito: precisa
+         bloquear o parser e publicar o consent default negado (os 7 sinais da
+         spec) antes de qualquer tag. Também emite url_passthrough e
+         ads_data_redaction, que o gtag ignora se vierem dentro do objeto de
+         consentimento. Substitui o bloco inline que existia aqui e cobria só 4
+         sinais.
+    -->
  <script src="https://d1w6liik5y6dkm.cloudfront.net/client-side/2/e5507eb5-83ba-4b36-8cc8-05226f1fc970.js"></script>
-<script>
-        !function(){var e=function(){var e,t="__tcfapiLocator",a=[],n=window;for(;n;){try{if(n.frames[t]){e=n;break}}catch(e){}if(n===window.top)break;n=n.parent}e||(!function e(){var a=n.document,r=!!n.frames[t];if(!r)if(a.body){var i=a.createElement("iframe");i.style.cssText="display:none",i.name=t,a.body.appendChild(i)}else setTimeout(e,5);return!r}(),n.__tcfapi=function(){for(var e,t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];if(!n.length)return a;if("setGdprApplies"===n[0])n.length>3&&2===parseInt(n[1],10)&&"boolean"==typeof n[3]&&(e=n[3],"function"==typeof n[2]&&n[2]("set",!0));else if("ping"===n[0]){var i={gdprApplies:e,cmpLoaded:!1,cmpStatus:"stub"};"function"==typeof n[2]&&n[2](i)}else a.push(n)},n.addEventListener("message",(function(e){var t="string"==typeof e.data,a={};try{a=t?JSON.parse(e.data):e.data}catch(e){}var n=a.__tcfapiCall;n&&window.__tcfapi(n.command,n.version,(function(a,r){var i={__tcfapiReturn:{returnValue:a,success:r,callId:n.callId}};t&&(i=JSON.stringify(i)),e.source&&e.source.postMessage(i,"*")}),n.parameter)}),!1))};"undefined"!=typeof module?module.exports=e:e()}();
-    </script>
 
-
+    <!-- 2) Tag do Google. Sob Google tag gateway, esta URL passa a ser servida
+         pelo domínio do próprio site. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10805872214"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -20,7 +25,10 @@
         gtag('js', new Date());
 
         gtag('config', 'AW-10805872214');
-         </script>
+    </script>
+
+    <!-- 3) Banner. Módulo é deferido por spec: roda depois do parsing, e é por
+         isso que o bootstrap acima existe. -->
 
     <title>Escola DNC</title>
 </head>
@@ -45,7 +53,11 @@
 
 
     <div id="seçãovideo">
-        <iframe id="video" width="502" height="283" src="https://www.youtube.com/embed/ITxGkd9h4n4" title="DNC - A escola inovadora que forma profissionais de alta perfomance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- data-category: sem ele o YouTube grava cookies assim que a página
+             abre, antes de qualquer escolha do visitante. A CMP move o src para
+             data-src, mostra um aviso no lugar e restaura o player quando a
+             categoria "functionality" é aceita. -->
+        <iframe id="video" data-category="functionality" width="502" height="283" src="https://www.youtube.com/embed/ITxGkd9h4n4" title="DNC - A escola inovadora que forma profissionais de alta perfomance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <div><h1 id="titulovideo">Aprenda com especialistas e <br>
     comece seu primeiro projeto</h1><br><br>
