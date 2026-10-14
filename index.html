@@ -6,19 +6,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
     <link rel="stylesheet" href="style.css">
 
-    <!--
-      1) Bootstrap da CMP. Clássico e SEM async/defer de propósito: precisa
-         bloquear o parser e publicar o consent default negado (os 7 sinais da
-         spec) antes de qualquer tag. Também emite url_passthrough e
-         ads_data_redaction, que o gtag ignora se vierem dentro do objeto de
-         consentimento. Substitui o bloco inline que existia aqui e cobria só 4
-         sinais.
-    -->
-<script src="https://d1w6liik5y6dkm.cloudfront.net/client-side/2/e5507eb5-83ba-4b36-8cc8-05226f1fc970.js"></script>
+    <!-- CMP: primeiro script do head, sem async/defer, para o consent default sair antes de qualquer tag do Google. -->
+    <script src="https://cdn-api-cmp.becompliance.com/client-side/2100/223f0b84-a113-4b6b-a1ad-6f418d1d4c05.js"></script>
 
-
-    <!-- 2) Tag do Google. Sob Google tag gateway, esta URL passa a ser servida
-         pelo domínio do próprio site. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10805872214"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -27,9 +17,6 @@
 
         gtag('config', 'AW-10805872214');
     </script>
-
-    <!-- 3) Banner. Módulo é deferido por spec: roda depois do parsing, e é por
-         isso que o bootstrap acima existe. -->
 
     <title>Escola DNC</title>
 </head>
